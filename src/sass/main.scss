@@ -1,12 +1,12 @@
 body{
     padding: 30px;
-    border: 1px solid teal;
+    // border: 1px solid teal;
     background-color: rgb(219, 245, 228);
 }
 .search-form{
     display: flex;
     max-width: 1200px;
-    border: 1px solid teal;
+    // border: 1px solid teal;
     margin: 0 auto;
     padding: 30px;
     justify-content: center;
@@ -26,23 +26,15 @@ body{
     max-width: 1200px;
     margin: 0 auto;
     padding: 15px;
-    border: 1px solid rgb(128, 0, 107);
+    // border: 1px solid rgb(128, 0, 107);
     display: flex;
     flex-wrap: wrap;
-        // margin-right: -10px;
-        margin-bottom: -10px;
-    // display: grid;
-    // grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    // grid-auto-rows: 240px;
-    // grid-gap: 12px;
 }
 
 .photo-card{
     width: calc((100% - 3*10px) / 3);
-        margin-right: 10px;
-            margin-bottom: 10px;
-    // height: calc();
-    // width: 100%;
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 a{
@@ -55,10 +47,17 @@ img{
     width: 100%;
     object-fit: cover;
 }
+
+button{
+
+}
+
 .info-item{
     margin: 0;
 }
 
 .load-more{
     display: none;
+    margin: 0 auto;
+    justify-content: center;
 }
