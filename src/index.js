@@ -16,6 +16,7 @@ let currentPage = 1;
 let query = '';
 
 refs.form.addEventListener('submit', onSubmit);
+let gallery = new SimpleLightbox('.gallery a');
 
 function onSubmit(e) {
     e.preventDefault();
@@ -29,7 +30,7 @@ function onSubmit(e) {
 
     fetchImages({query: searchQuery, page: currentPage})
         .then(response => {
-            let gallery = new SimpleLightbox('.gallery a');
+            // let gallery = new SimpleLightbox('.gallery a');
             const totalHits = response.data.totalHits;
             if (totalHits === 0) { 
                 refs.form.reset();
@@ -42,6 +43,7 @@ function onSubmit(e) {
             
             const markup = renderCard(response);
             refs.card.innerHTML = markup;
+            
             gallery.refresh();
             
             refs.form.reset();
@@ -65,6 +67,7 @@ function onClickBtn(e) {
     .then(response => {
         const markup = renderCard(response);
         refs.card.insertAdjacentHTML('beforeend', markup);
+        gallery.refresh();
         if (response.data.hits.length < 40) {
                 refs.btnMore.style.display = 'none';
                 Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.", { timeout: 3500 });
