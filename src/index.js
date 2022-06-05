@@ -64,8 +64,7 @@ function onClickBtn(e) {
     fetchImages({ query, page: currentPage })
     .then(response => {
         const markup = renderCard(response);
-        refs.card.innerHTML = '';
-        refs.card.innerHTML = markup;
+        refs.card.insertAdjacentHTML('beforeend', markup);
         if (response.data.hits.length < 40) {
                 refs.btnMore.style.display = 'none';
                 Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.", { timeout: 3500 });

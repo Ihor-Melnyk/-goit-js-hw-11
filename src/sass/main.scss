@@ -1,15 +1,17 @@
 body{
     padding: 30px;
     // border: 1px solid teal;
-    background-color: rgb(219, 245, 228);
+    background: #e2e9f4;
 }
 .search-form{
     display: flex;
     max-width: 1200px;
     // border: 1px solid teal;
     margin: 0 auto;
-    padding: 30px;
     justify-content: center;
+    padding: 16px 16px;
+    background-color: #e2e9f4;
+    border-radius: var(--border-radius);
 }
 .info{
     margin: 0;
@@ -35,6 +37,10 @@ body{
     width: calc((100% - 3*10px) / 3);
     margin-right: 10px;
     margin-bottom: 10px;
+    // border: 1px solid rgb(2, 26, 26);
+        box-shadow:
+                -2px -2px 6px rgba(rgb(210, 200, 200), .6),
+                2px 2px 12px #0f1820;
 }
 
 a{
@@ -59,5 +65,30 @@ button{
 .load-more{
     display: none;
     margin: 0 auto;
-    justify-content: center;
+
+    background-image: linear-gradient(#42A1EC, #0070C9);
+    border: 1px solid #0077CC;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    direction: ltr;
+    // font-family: "SF Pro Text", "SF Pro Icons", "AOS Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: -.022em;
+    line-height: 1.47059;
+    min-width: 30px;
+    overflow: visible;
+    padding: 4px 15px;
+    text-align: center;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    &:focus,&:hover {
+        box-shadow: rgb(131 192 253 / 50%) 0 0 0 3px;
+        outline: none;
+    }
 }
