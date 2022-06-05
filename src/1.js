@@ -4,6 +4,7 @@ import { fetchImages } from "./js/axios-api.js";
 import { renderCard } from "./js/renderCard.js";
 import './sass/main.scss';
 import "simplelightbox/dist/simple-lightbox.min.css";
+// import './sass/main.scss';
 
 const refs = {
     form: document.querySelector('#search-form'),
@@ -26,14 +27,16 @@ function onSubmit(e) {
     currentPage = 1;
     query = searchQuery;
     refs.card.innerHTML = '';
+    fetchAndRenderImage({ query: searchQuery, page: currentPage });
+}
 
+function fetchAndRenderImage({query: searchQuery, page: currentPage}) {
     fetchImages({query: searchQuery, page: currentPage})
         .then(response => {
             let gallery = new SimpleLightbox('.gallery a');
             const totalHits = response.data.totalHits;
             if (totalHits === 0) { 
                 refs.form.reset();
-                refs.btnMore.style.display = 'none';
                 Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.', { timeout: 2500 });
                 return;
             }
@@ -59,20 +62,18 @@ function onSubmit(e) {
 
 
 refs.btnMore.addEventListener('click', onClickBtn);
-function onClickBtn(e) {
+function onClickBtn({ query: searchQuery, page: currentPage }) {
+    // const searchQuery = refs.input.value.trim();
+    // query = searchQuery;
+    console.log(1);
     currentPage += 1;
-    fetchImages({ query, page: currentPage })
-    .then(response => {
-        const markup = renderCard(response);
-        refs.card.innerHTML = '';
-        refs.card.innerHTML = markup;
-        if (response.data.hits.length < 40) {
-                refs.btnMore.style.display = 'none';
-                Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.", { timeout: 3500 });
-
-            } else {
-                refs.btnMore.style.display = 'flex';
-            }
-    });
+    // query = searchQuery;
+    // console.log(fetchAndRenderImage({ query: searchQuery, page: currentPage }));
+    fetchAndRenderImage({ query: searchQuery, page: currentPage });
+    //.then(response => {
+    //     const markup = renderCard(response);
+    //     // refs.card.innerHTML = '';
+    //     // refs.card.innerHTML = markup;
+    // });
 }
 
