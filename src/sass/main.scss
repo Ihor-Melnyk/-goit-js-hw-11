@@ -20,6 +20,8 @@ body{
 .info-item{
     align-items: center;
     text-align: center;
+    color: #6d7a88;
+    font-family: "Orbitron";
 }
 
 .gallery{
@@ -58,12 +60,13 @@ img{
     display: none;
     padding: 15px;
     margin: 0 auto;
-    color: #acbdce;
+    color: #a9b8c9;
+    font-family: "Orbitron", sans-serif;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
     box-shadow: -2px -2px 6px rgba(#fff, .6),
-        2px 2px 12px #c8d8e7;
+        2px 2px 12px #acc5dd;
 }
 
 .Card {
